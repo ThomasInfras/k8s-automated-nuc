@@ -26,7 +26,8 @@ spec:
             ingressClassName: nginx
             enabled: true
             annotations:
-              ingress.kubernetes.io/force-ssl-redirect: "true" 
+              gethomepage.dev/enabled: "true"
+              nginx.ingress.kubernetes.io/force-ssl-redirect: "true" 
               nginx.ingress.kubernetes.io/ssl-redirect: "true"
               nginx.ingress.kubernetes.io/secure-backends: "true"
               nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
