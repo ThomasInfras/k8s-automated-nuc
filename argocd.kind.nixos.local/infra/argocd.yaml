@@ -18,7 +18,7 @@ spec:
       values: |
         configs:
           secret:
-            argocdServerAdminPassword: "$2y$10$7MobiW34X3tD5VH5grg3EePBFbH/6zqD0a6swYEr8/X.zdWtVTQ0i"
+            argocdServerAdminPassword: "$2a$10$7MobiW34X3tD5VH5grg3EePBFbH/6zqD0a6swYEr8/X.zdWtVTQ0i"
         global:
           domain: argocd.kind.nixos.local
         server:
