@@ -67,4 +67,5 @@ spec:
 EOF
 ```
 
+rajouter dans le hostname les nom dns choisi
 
