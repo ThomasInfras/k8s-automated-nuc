@@ -9,6 +9,14 @@ spec:
     repoURL: 'https://argoproj.github.io/argo-helm'
     chart: argo-cd
     targetRevision: ">0.0.0"  # Utiliser toujours la dernière version disponible
+    helm:
+      values: |
+        global:
+          domain: argocd.kind.nixos.local
+        server:
+          ingress:
+            ingressClassName: nginx
+            enabled: true
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: argocd  # Namespace où Argo CD sera déployé
