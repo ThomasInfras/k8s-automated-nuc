@@ -28,6 +28,7 @@ spec:
             annotations:
               gethomepage.dev/enabled: "true"
               gethomepage.dev/name: "ARGOCD"
+              gethomepage.dev/pod-selector: "app.kubernetes.io/component=server"
               nginx.ingress.kubernetes.io/force-ssl-redirect: "true" 
               nginx.ingress.kubernetes.io/ssl-redirect: "true"
               nginx.ingress.kubernetes.io/secure-backends: "true"
