@@ -27,7 +27,7 @@ spec:
             gethomepage.dev/icon: "homepage.png"
           ingressClassName: "nginx"
           hosts:
-            - host: &host "homepage.kind.nixos.local"
+            - host: &host "home.kind.nixos.local"
               paths:
                 - path: /
                   pathType: Prefix
