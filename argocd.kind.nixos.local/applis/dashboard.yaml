@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: homepage
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://jameswynn.github.io/helm-charts'
+    chart: homepage
+    targetRevision: ">0.0.0"  # Utiliser la dernière version disponible du chart
+    helm:
+      valueFiles:
+        - values.yaml  # Assurez-vous que ce fichier est dans le dépôt ou référencé correctement
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: homepage  # Changez le namespace si nécessaire
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true   
