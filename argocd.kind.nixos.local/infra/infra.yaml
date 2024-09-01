@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: 'https://kubernetes.github.io/ingress-nginx'
     chart: ingress-nginx
-    targetRevision: latest # Specify the version of the chart
+    targetRevision: 4.11.2 # Specify the version of the chart
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: ingress-nginx
