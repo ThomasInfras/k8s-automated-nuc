@@ -17,8 +17,12 @@ metadata:
   name: github
   namespace: argocd-infra
 spec:
+  ignoreDifferences:
+    - group: [argoproj.io](http://argoproj.io/)
+      kind: Application
+      jsonPointers:
+        - /operation
   project: default
-
   source:
     repoURL: 'https://github.com/ThomasInfras/k8s-automated-kind'
     targetRevision: HEAD
