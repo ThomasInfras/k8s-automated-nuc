@@ -17,6 +17,11 @@ spec:
           ingress:
             ingressClassName: nginx
             enabled: true
+            annotations:
+              nginx.ingress.kubernetes.io/ssl-redirect: "true"
+              nginx.ingress.kubernetes.io/secure-backend: "true"
+              nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+              nginx.ingress.kubernetes.io/hsts: "false"
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: argocd  # Namespace où Argo CD sera déployé
