@@ -61,6 +61,7 @@ spec:
               # This label will enable discover of this deployment in Homepage
               gethomepage.dev/enabled: "true"
             annotations:
+              nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
               gethomepage.dev/name: "HomepageCUSTOM"
               gethomepage.dev/description: "A modern, secure, highly customizable application dashboard."
             ingressClassName: "nginx"
