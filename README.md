@@ -18,7 +18,7 @@ metadata:
   namespace: argocd-infra
 spec:
   ignoreDifferences:
-    - group: [argoproj.io](http://argoproj.io/)
+    - group: argoproj.io
       kind: Application
       jsonPointers:
         - /operation
