@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: nginx-ingress-controller
-  namespace: argocd-test
+  namespace: argocd-infra
 spec:
   project: default
   source:
