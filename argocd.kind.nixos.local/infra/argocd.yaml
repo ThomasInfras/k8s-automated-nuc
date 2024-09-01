@@ -13,7 +13,7 @@ spec:
   source:
     repoURL: 'https://argoproj.github.io/argo-helm'
     chart: argo-cd
-    targetRevision: ">0.0.0"  # Utiliser toujours la dernière version disponible
+    targetRevision: "7.5.0"  
     helm:
       values: |
         configs:
