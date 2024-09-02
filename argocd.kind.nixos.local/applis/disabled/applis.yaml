@@ -89,7 +89,6 @@ apps_tpl_string:
                   paths:
                     - path: /
                       pathType: ImplementationSpecific
-
   homepage:
     spec:
       sources:
