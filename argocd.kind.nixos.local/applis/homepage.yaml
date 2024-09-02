@@ -14,20 +14,7 @@ spec:
         - values.yaml 
       values: |
         enableRbac: true
-
-        extraClusterRoles:
-          # - apiGroups:
-          #   - some-group
-          #   resources:
-          #   - some-resource
-          #   verbs:
-          #   - get
-
         serviceAccount:
-          # Specify a different service account name. When blank it will default to the release
-          # name if *create* is enabled, otherwise it will refer to the default service account.
-          name: ""
-          # Create service account. Needed when RBAC is enabled.
           create: true      
         config:
           widgets:
@@ -58,7 +45,6 @@ spec:
           main:
             enabled: true
             labels:
-              # This label will enable discover of this deployment in Homepage
               gethomepage.dev/enabled: "true"
             annotations:
               nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
