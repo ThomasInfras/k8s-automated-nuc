@@ -16,6 +16,19 @@ spec:
     targetRevision: "7.5.0"  
     helm:
       values: |
+        repoServer:
+          volumes:
+            - name: helm-replace
+              configMap:
+                name: config-map-helm-replace
+                defaultMode: 0777
+          volumeMounts:
+            - name: helm-replace
+              mountPath: /usr/local/sbin/helm
+              subPath: helm
+          env:
+            - name: HELM_BIN
+              value: /usr/local/bin/helm
         configs:
           secret:
             argocdServerAdminPassword: "$2a$10$7MobiW34X3tD5VH5grg3EePBFbH/6zqD0a6swYEr8/X.zdWtVTQ0i"
