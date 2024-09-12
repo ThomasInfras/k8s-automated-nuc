@@ -1,57 +1,5 @@
-apps_tpl_string: |
-  {{- $basePath := "charts/openstack-helm" }}
-  {{- $infraPath := "charts/openstack-helm-infra" }}
 
-  {{- $components := dict
-    "mariadb" $infraPath
-    "rabbitmq" $infraPath
-    "memcached" $infraPath
 
-    "keystone" $basePath
-    "horizon" $basePath
-    "glance" $basePath
-    "cinder" $basePath
-    
-    "openvswitch" $infraPath
-    "neutron" $basePath
-    "libvirt" $infraPath
-    "nova" $basePath
-    "placement" $basePath
-
-    "barbican" $basePath
-    "powerdns" $infraPath
-    "designate" $basePath
-    "octavia" $basePath
-  }}
-
-  {{- range $name, $path := $components }}
-    {{ $name }}:
-      force: true
-      metadata:
-        name: {{ $name }}
-        labels:
-          app: {{ $name }}
-          group: openstack
-      spec:
-        sources:
-          - path: {{ $path }}/{{ $name }}
-            helm:
-              valueFiles:
-                - values.yaml
-                {{- if eq $.Values.openstack.version "2023.2" }}
-                - values_overrides/ubuntu_jammy.yaml
-                - values_overrides/2023.1-ubuntu_focal.yaml
-                - values_overrides/2023.2-ubuntu_jammy.yaml
-                {{- if eq $.Values.openstack.version "2024.1" }}
-                - values_overrides/2024.1-ubuntu_jammy.yaml
-                {{- end }}
-                {{- end }}
-                - /values/openstack/{{ $name }}.yaml
-              values: |
-                {{- $tpl := ( tpl ((index $.Values (printf "%s_tpl" $name)) | toYaml) .) | default (dict) -}}
-                {{- $merged := merge ((index $.Values $name) | default (dict)) (fromYaml $tpl) -}}
-                {{ $merged | toYaml | nindent 19 }}
-  {{- end }}
 
 
 apps_values:
@@ -140,3 +88,74 @@ apps_tpl_string:
                         - path: /
                           pathType: Prefix
 
+
+
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: tools
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/ThomasHelmCharts/argocd-applications'
+    path: ./
+    targetRevision: "HEAD" 
+    helm:
+      valueFiles:
+        - values.yaml 
+      values: |
+        enableRbac: true
+        serviceAccount:
+          create: true      
+        config:
+          widgets:
+            - resources:
+                # change backend to 'kubernetes' to use Kubernetes integration. Requires RBAC.
+                backend: kubernetes
+                expanded: true
+                cpu: true
+                memory: true
+            - search:
+                provider: duckduckgo
+                target: _blank
+            - kubernetes:
+                cluster:
+                  show: true
+                  cpu: true
+                  memory: true
+                  showLabel: true
+                  label: "cluster"
+                nodes:
+                  show: true
+                  cpu: true
+                  memory: true
+                  showLabel: true   
+          kubernetes:
+            mode: cluster                           
+        ingress:
+          main:
+            enabled: true
+            labels:
+              gethomepage.dev/enabled: "true"
+            annotations:
+              nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+              gethomepage.dev/name: "HomepageCUSTOM"
+              gethomepage.dev/description: "A modern, secure, highly customizable application dashboard."
+            ingressClassName: "nginx"
+            hosts:
+              - host: &host "home.kind.nixos.local"
+                paths:
+                  - path: /
+                    pathType: Prefix
+
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: homepage  # Changez le namespace si nécessaire
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true   
