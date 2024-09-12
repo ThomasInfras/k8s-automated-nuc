@@ -106,6 +106,10 @@ spec:
       valueFiles:
         - values.yaml 
       values: |
+
+
+
+      
         enableRbac: true
         serviceAccount:
           create: true      
