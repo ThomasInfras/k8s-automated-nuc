@@ -24,7 +24,7 @@ spec:
       values: |
         apps_values:
           domain: ".kind.nixos.local"        
-        apps_tpl:
+        apps:
           kube-ops-view:
             spec:
               source:
