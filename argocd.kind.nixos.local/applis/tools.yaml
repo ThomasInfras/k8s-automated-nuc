@@ -27,7 +27,7 @@ spec:
         apps:
           kube-ops-view:
             spec:
-              source:
+              sources:
                 - repoURL: 'https://charts.christianhuth.de'
                   chart: kube-ops-view
                   targetRevision: ">0.0.0"
