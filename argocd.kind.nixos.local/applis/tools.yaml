@@ -33,7 +33,7 @@ spec:
                   targetRevision: '">0.0.0"'
                   helm:
                     values: |
-                      host: &host kube-ops-view{{ $.Values.apps_values.domain }}
+                      host: kube-ops-view{{ $.Values.apps_values.domain }}
                       ingress:
                         enabled: true
                         className: "nginx"
@@ -47,7 +47,7 @@ spec:
                           # kubernetes.io/ingress.class: nginx
                           # kubernetes.io/tls-acme: "true"
                         hosts:
-                          - host: *host
+                          - host: kube-ops-view{{ $.Values.apps_values.domain }}
                             paths:
                               - path: /
                                 pathType: ImplementationSpecific
