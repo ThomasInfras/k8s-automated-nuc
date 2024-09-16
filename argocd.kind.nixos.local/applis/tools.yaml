@@ -68,18 +68,13 @@ spec:
                       config:
                         quicklaunch:
                           searchDescriptions: true
-                          hideInternetSearch: false
+                          hideInternetSearch: true
                           showSearchSuggestions: true
                           hideVisitURL: true
                           provider: google                       
                         headerStyle: boxedWidgets
                         services: {}
-                        widgets:
-                          - quicklaunch:
-                            searchDescriptions: true
-                            showSearchSuggestions: true
-                            hideVisitURL: true
-                            provider: google                            
+                        widgets:                          
                           - resources:
                               # change backend to 'kubernetes' to use Kubernetes integration. Requires RBAC.
                               backend: kubernetes
@@ -88,10 +83,11 @@ spec:
                               memory: true
                           - search:
                               target: _blank
-                              searchDescriptions: true
-                              hideInternetSearch: true
-                              showSearchSuggestions: true
-                              hideVisitURL: true
+                              quicklaunch:
+                                searchDescriptions: true
+                                hideInternetSearch: true
+                                showSearchSuggestions: true
+                                hideVisitURL: true
                               provider: google                                 
                           - kubernetes:
                               cluster:
