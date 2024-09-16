@@ -66,6 +66,13 @@ spec:
                       serviceAccount:
                         create: true      
                       config:
+                        quicklaunch:
+                          searchDescriptions: true
+                          hideInternetSearch: true
+                          showSearchSuggestions: true
+                          hideVisitURL: true
+                          provider: google                       
+                        headerStyle: boxedWidgets
                         services: {}
                         widgets:
                           - resources:
