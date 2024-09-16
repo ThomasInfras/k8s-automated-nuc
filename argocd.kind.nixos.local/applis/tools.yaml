@@ -82,8 +82,12 @@ spec:
                               cpu: true
                               memory: true
                           - search:
-                              provider: duckduckgo
                               target: _blank
+                              searchDescriptions: true
+                              hideInternetSearch: true
+                              showSearchSuggestions: true
+                              hideVisitURL: true
+                              provider: google                                 
                           - kubernetes:
                               cluster:
                                 show: true
