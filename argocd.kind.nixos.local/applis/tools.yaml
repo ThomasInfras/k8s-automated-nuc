@@ -64,15 +64,16 @@ spec:
                       host: &host home{{ $.Values.apps_values.domain }}
                       enableRbac: true
                       serviceAccount:
-                        create: true      
+                        create: true
                       config:
-                        quicklaunch:
-                          searchDescriptions: true
-                          hideInternetSearch: true
-                          showSearchSuggestions: true
-                          hideVisitURL: true
-                          provider: google                       
-                        headerStyle: boxedWidgets
+                        settings:
+                          quicklaunch:
+                            searchDescriptions: true
+                            hideInternetSearch: true
+                            showSearchSuggestions: true
+                            hideVisitURL: true
+                            provider: google                       
+                          headerStyle: boxedWidgets
                         services: {}
                         widgets:                          
                           - resources:
