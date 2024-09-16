@@ -45,8 +45,8 @@ spec:
                           gethomepage.dev/name: "kube-ops-view"
                           gethomepage.dev/icon: "https://pixeljoint.com/files/icons/full/container3.png"
                           gethomepage.dev/description: "A modern, secure, highly customizable application dashboard."
-                          gethomepage.dev/group: Media
-                          gethomepage.dev/widget.type: "emby"
+                          gethomepage.dev/group: K8sTools
+                          #gethomepage.dev/widget.type: "emby"
 
                           
                           # kubernetes.io/ingress.class: nginx
