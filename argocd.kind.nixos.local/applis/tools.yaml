@@ -1,4 +1,4 @@
-apiVersion: argoproj.io/v1alpha1
+ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: tools
@@ -68,7 +68,7 @@ spec:
                       config:
                         settings:
                           background: 
-                            image: https://i.redd.it/avsw3427a1pd1.jpeg
+                            #image: https://i.redd.it/avsw3427a1pd1.jpeg
                             #blur: sm # sm, "", md, xl... see https://tailwindcss.com/docs/backdrop-blur
                             #saturate: 50 # 0, 50, 100... see https://tailwindcss.com/docs/backdrop-saturate
                             #brightness: 50 # 0, 50, 75... see https://tailwindcss.com/docs/backdrop-brightness
