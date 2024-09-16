@@ -42,6 +42,7 @@ spec:
               gethomepage.dev/enabled: "true"
               gethomepage.dev/name: "ARGOCD"
               gethomepage.dev/pod-selector: "app.kubernetes.io/component=server"
+              gethomepage.dev/icon: https://miro.medium.com/v2/resize:fit:256/0*sLy_MPUNVdemCJf4.png
               nginx.ingress.kubernetes.io/force-ssl-redirect: "true" 
               nginx.ingress.kubernetes.io/ssl-redirect: "true"
               nginx.ingress.kubernetes.io/secure-backends: "true"
