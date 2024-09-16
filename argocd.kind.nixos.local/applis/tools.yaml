@@ -66,6 +66,7 @@ spec:
                       serviceAccount:
                         create: true      
                       config:
+                        services: {}
                         widgets:
                           - resources:
                               # change backend to 'kubernetes' to use Kubernetes integration. Requires RBAC.
