@@ -73,7 +73,7 @@ spec:
                             #saturate: 50 # 0, 50, 100... see https://tailwindcss.com/docs/backdrop-saturate
                             #brightness: 50 # 0, 50, 75... see https://tailwindcss.com/docs/backdrop-brightness
                             #opacity: 50 # 0-100
-                          cardBlur: sm # sm, "", md, etc... see https://tailwindcss.com/docs/backdrop-blur
+                          #cardBlur: sm # sm, "", md, etc... see https://tailwindcss.com/docs/backdrop-blur
                           quicklaunch:
                             searchDescriptions: true
                             hideInternetSearch: true
