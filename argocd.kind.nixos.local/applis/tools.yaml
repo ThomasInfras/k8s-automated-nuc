@@ -44,7 +44,7 @@ spec:
                           nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
                           gethomepage.dev/name: "kube-ops-view"
                           gethomepage.dev/icon: "https://pixeljoint.com/files/icons/full/container3.png"
-                          gethomepage.dev/description: "A modern, secure, highly customizable application dashboard."
+                          gethomepage.dev/description: "Read-only system dashboard for multiple K8s clusters"
                           gethomepage.dev/group: K8sTools
                           #gethomepage.dev/widget.type: "emby"
 
