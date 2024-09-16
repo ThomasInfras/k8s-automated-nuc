@@ -41,8 +41,10 @@ spec:
             annotations:
               gethomepage.dev/enabled: "true"
               gethomepage.dev/name: "ARGOCD"
+              gethomepage.dev/description: Argo CD automates the deployment of the desired application states in the specified target environments.
               gethomepage.dev/pod-selector: "app.kubernetes.io/component=server"
               gethomepage.dev/icon: https://miro.medium.com/v2/resize:fit:256/0*sLy_MPUNVdemCJf4.png
+              gethomepage.dev/group: K8sTools
               nginx.ingress.kubernetes.io/force-ssl-redirect: "true" 
               nginx.ingress.kubernetes.io/ssl-redirect: "true"
               nginx.ingress.kubernetes.io/secure-backends: "true"
