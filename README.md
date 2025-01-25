@@ -42,7 +42,7 @@ kubectl apply -f - <<EOF
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: k8s-argocd-infra
+  name: k8s-argocd-infra.git
   namespace: argocd-infra
 spec:
   ignoreDifferences:
