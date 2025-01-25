@@ -39,7 +39,7 @@ spec:
             domain: *domain
             className: nginx
           git@github.com/ThomasInfras/argocd-template/argocd/argocd-apps:
-            repo: 'git@github.com:ThomasInfras/k8s-automated-kind'
+            repo: 'https://github.com:ThomasInfras/k8s-automated-kind'
             path: k8s-argocd-apps
         apps_tpl_dict_example_override:
           git@github.com/ThomasInfras/argocd-template/argocd-simple:
@@ -54,6 +54,6 @@ spec:
                         ingressClassName: nginx
 
   sources:
-    - repoURL: 'git@github.com:ThomasInfras/argocd-templates'
+    - repoURL: 'https://github.com/ThomasInfras/argocd-templates'
       targetRevision: "HEAD"
       ref: templates
