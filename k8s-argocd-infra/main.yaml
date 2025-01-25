@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: k8s-argocd-infra-main
+  name: k8s-argocd-infra-main.yaml
   namespace: argocd-infra
 spec:
   ignoreDifferences:
