@@ -19,41 +19,41 @@ spec:
     syncOptions:
       - CreateNamespace=true
   project: default
+  source:
+    repoURL: 'https://github.com/ThomasHelmCharts/argocd-applications'
+    path: ./
+    targetRevision: "HEAD" 
+    helm:
+      valueFiles:
+        - values.yaml
+        # ARGOCD
+        - $templates/argocd/argocd-simple.yaml
+        - $templates/argocd/argocd-lookup.yaml
+        - $templates/argocd/argocd-apps.yaml
+        # NGINX
+        #- $templates/nginx/nginx-kind.yaml
+      valuesObject:
+        domain: &domain nixos.local
+        apps_values:
+          git@github.com/ThomasInfras/argocd-template/argocd/argocd-simple:
+            domain: *domain
+            className: nginx
+          git@github.com/ThomasInfras/argocd-template/argocd/argocd-apps:
+            repo: 'git@github.com:ThomasInfras/k8s-automated-kind'
+            path: k8s-argocd-apps
+        apps_tpl_dict_example_override:
+          git@github.com/ThomasInfras/argocd-template/argocd-simple:
+            argocd:
+              spec:
+                helm:
+                  valuesObjects:
+                    global:
+                      domain: argocd.nixos.local            
+                    server:
+                      ingress:
+                        ingressClassName: nginx
+
   sources:
-    - repoURL: 'https://github.com/ThomasHelmCharts/argocd-applications'
-      path: ./
-      targetRevision: "HEAD" 
-      helm:
-        valueFiles:
-          - values.yaml
-          # ARGOCD
-          - $templates/argocd/argocd-simple.yaml
-          - $templates/argocd/argocd-lookup.yaml
-          - $templates/argocd/argocd-apps.yaml
-          # NGINX
-          #- $templates/nginx/nginx-kind.yaml
-        valuesObject:
-          domain: &domain nixos.local
-          apps_values:
-            git@github.com/ThomasInfras/argocd-template/argocd/argocd-simple:
-              domain: *domain
-              className: nginx
-            git@github.com/ThomasInfras/argocd-template/argocd/argocd-apps:
-              repo: 'git@github.com:ThomasInfras/k8s-automated-kind'
-              path: k8s-argocd-apps
-          apps_tpl_dict_example_override:
-            git@github.com/ThomasInfras/argocd-template/argocd-simple:
-              argocd:
-                spec:
-                  helm:
-                    valuesObjects:
-                      global:
-                        domain: argocd.nixos.local            
-                      server:
-                        ingress:
-                          ingressClassName: nginx
-
-
     - repoURL: 'git@github.com:ThomasInfras/argocd-templates'
       targetRevision: "HEAD"
-      ref: values
+      ref: templates
