@@ -19,22 +19,20 @@ spec:
     syncOptions:
       - CreateNamespace=true
   project: default
-  source:
-    repoURL: 'https://github.com/ThomasHelmCharts/argocd-applications'
-    path: ./
-    targetRevision: "HEAD" 
-    helm:
-      valueFiles:
-        - values.yaml
-        # ARGOCD
-        - $templates/argocd/argocd-simple.yaml
-        - $templates/argocd/argocd-lookup.yaml
-        - $templates/argocd/argocd-apps.yaml
-        # NGINX
-        #- $templates/nginx/nginx-kind.yaml
-
-
   sources:
+    - repoURL: 'https://github.com/ThomasHelmCharts/argocd-applications'
+      path: ./
+      targetRevision: "HEAD" 
+      helm:
+        valueFiles:
+          - values.yaml
+          # ARGOCD
+          - $templates/argocd/argocd-simple.yaml
+          - $templates/argocd/argocd-lookup.yaml
+          - $templates/argocd/argocd-apps.yaml
+          # NGINX
+          #- $templates/nginx/nginx-kind.yaml
+  
     - repoURL: 'https://github.com/ThomasInfras/argocd-templates'
       targetRevision: "HEAD"
       ref: templates
