@@ -31,7 +31,7 @@ spec:
           - $templates/argocd/argocd-lookup.yaml
           - $templates/argocd/argocd-apps.yaml
           # NGINX
-          - $templates/nginx/nginx-kind.yaml
+          #- $templates/nginx/nginx-kind.yaml
         valuesObject:
           domain: &domain nixos.local
           apps_values:
