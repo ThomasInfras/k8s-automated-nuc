@@ -42,7 +42,7 @@ kubectl apply -f - <<EOF
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: github
+  name: k8s-argocd-infra
   namespace: argocd-infra
 spec:
   ignoreDifferences:
@@ -54,7 +54,7 @@ spec:
   source:
     repoURL: 'https://github.com/ThomasInfras/k8s-automated-kind'
     targetRevision: HEAD
-    path: argocd.kind.nixos.local/infra
+    path: k8s-argocd-infra
 
   destination:
     server: 'https://kubernetes.default.svc'
