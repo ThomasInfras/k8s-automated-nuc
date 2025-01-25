@@ -35,10 +35,10 @@ spec:
         valuesObject:
           domain: &domain nixos.local
           apps_values:
-            git@github.com/ThomasInfras/argocd-template/argocd-simple:
+            git@github.com/ThomasInfras/argocd-template/argocd/argocd-simple:
               domain: *domain
               className: nginx
-            git@github.com/ThomasInfras/argocd-template/argocd-apps:
+            git@github.com/ThomasInfras/argocd-template/argocd/argocd-apps:
               repo: 'git@github.com:ThomasInfras/k8s-automated-kind'
               path: k8s-argocd-apps
           apps_tpl_dict_example_override:
