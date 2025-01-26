@@ -2,7 +2,7 @@ Pour déployer un kind avec un ingress
 ```
 https://kind.sigs.k8s.io/docs/user/ingress/
 
-cat <<EOF | kind create cluster --config=-
+cat <<EOF | sudo kind create cluster --config=-
 kind: Cluster
 apiVersion: kind.x-k8s.io/v1alpha4
 nodes:
@@ -17,12 +17,14 @@ nodes:
   - containerPort: 80
     hostPort: 80
     protocol: TCP
+    listenAddress: "127.0.0.1"
   - containerPort: 443
     hostPort: 443
     protocol: TCP
+    listenAddress: "127.0.0.1"
 EOF
 
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
+sudo kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
 
 ```
 
