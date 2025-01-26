@@ -39,6 +39,6 @@ spec:
               domain: *domain
             git@github.com/ThomasInfras/argocd-template/argocd/argocd-apps:
               repo: 'https://github.com/ThomasInfras/k8s-automated-kind'
-      - repoURL: 'https://github.com/ThomasInfras/argocd-templates'
-        targetRevision: "HEAD"
-        ref: templates
+    - repoURL: 'https://github.com/ThomasInfras/argocd-templates'
+      targetRevision: "HEAD"
+      ref: templates
