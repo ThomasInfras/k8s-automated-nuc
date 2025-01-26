@@ -31,6 +31,7 @@ spec:
           - $templates/kube-ops-view/kube-ops-view.yaml
           - $templates/metrics-server/metrics-server.yaml
           - $templates/netdata/netdata.yaml
+          - $templates/kubescape/kubescape.yaml
         valuesObject:
           domain: &domain .kind.localhost
           apps_values:
