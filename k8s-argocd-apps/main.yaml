@@ -29,6 +29,7 @@ spec:
           - values.yaml
           - $templates/homepage/homepage.yaml
           - $templates/kube-ops-view/kube-ops-view.yaml
+          - $templates/metrics-server/metrics-server.yaml
         valuesObject:
           domain: &domain .kind.localhost
           apps_values:
