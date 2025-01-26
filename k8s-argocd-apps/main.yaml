@@ -28,6 +28,7 @@ spec:
         valueFiles:
           - values.yaml
           - $templates/homepage/homepage.yaml
+          - $templates/kube-ops-view/kube-ops-view.yaml
         valuesObject:
           domain: &domain .kind.localhost
           apps_values:
