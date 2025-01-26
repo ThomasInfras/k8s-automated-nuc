@@ -40,7 +40,7 @@ configs.cm.admin.enabled=false --set configs.repositories.gitrepo.url=https://gi
 
 
 
-kubectl apply -f - <<EOF
+sudo kubectl apply -f - <<EOF
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
