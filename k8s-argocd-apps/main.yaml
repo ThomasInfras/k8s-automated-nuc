@@ -32,6 +32,7 @@ spec:
           - $templates/metrics-server/metrics-server.yaml
           - $templates/netdata/netdata.yaml
           - $templates/kubescape/kubescape.yaml
+          - $templates/jupyterhub/jupyterhub.yaml
         valuesObject:
           domain: &domain .kind.localhost
           apps_values:
