@@ -38,7 +38,7 @@ spec:
               domain: *domain
             git@github.com/ThomasInfras/argocd-template/kube-ops-view/kube-ops-view:
               domain: *domain
-            git@github.com/ThomasInfras/argocd-template/netdata/netdata:
+            github.com/ThomasInfras/argocd-template/netdata/netdata:
               domain: *domain              
     - repoURL: 'https://github.com/ThomasInfras/argocd-templates'
       targetRevision: "HEAD"
