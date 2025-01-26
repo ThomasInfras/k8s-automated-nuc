@@ -30,12 +30,15 @@ spec:
           - $templates/homepage/homepage.yaml
           - $templates/kube-ops-view/kube-ops-view.yaml
           - $templates/metrics-server/metrics-server.yaml
+          - $templates/netdata/netdata.yaml
         valuesObject:
           domain: &domain .kind.localhost
           apps_values:
             git@github.com/ThomasInfras/argocd-template/homepage/homepage:
               domain: *domain
             git@github.com/ThomasInfras/argocd-template/kube-ops-view/kube-ops-view:
+              domain: *domain
+            git@github.com/ThomasInfras/argocd-template/netdata/netdata:
               domain: *domain              
     - repoURL: 'https://github.com/ThomasInfras/argocd-templates'
       targetRevision: "HEAD"
