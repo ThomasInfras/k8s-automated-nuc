@@ -34,9 +34,7 @@ Déployer argocd-infra avec helm
 
 ```
 sudo helm repo add argo https://argoproj.github.io/argo-helm
-sudo helm install argocd-infra  argo/argo-cd --set notifications.enabled=false --set dex.enabled=false --set redis.enabled=true --set server.replicas=1 --set 
-
-configs.cm.admin.enabled=false --set configs.repositories.gitrepo.url=https://github.com/ThomasInfras/k8s-automated-kind --set applicationSet.replicas=0  --namespace argocd-infra --create-namespace
+sudo helm install argocd-infra  argo/argo-cd --set notifications.enabled=false --set dex.enabled=false --set redis.enabled=true --set server.replicas=1 --set configs.cm.admin.enabled=false --set configs.repositories.gitrepo.url=https://github.com/ThomasInfras/k8s-automated-kind --set applicationSet.replicas=0  --namespace argocd-infra --create-namespace
 
 
 
