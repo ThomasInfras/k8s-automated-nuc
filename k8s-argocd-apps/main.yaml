@@ -34,6 +34,8 @@ spec:
           apps_values:
             git@github.com/ThomasInfras/argocd-template/homepage/homepage:
               domain: *domain
+            git@github.com/ThomasInfras/argocd-template/kube-ops-view/kube-ops-view:
+              domain: *domain              
     - repoURL: 'https://github.com/ThomasInfras/argocd-templates'
       targetRevision: "HEAD"
       ref: templates
