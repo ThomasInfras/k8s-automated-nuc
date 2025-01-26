@@ -33,7 +33,7 @@ spec:
           # NGINX
           #- $templates/nginx/nginx-kind.yaml
         valuesObject:
-          domain: &domain .kind
+          domain: &domain .kind.localhost
           apps_values:
             git@github.com/ThomasInfras/argocd-template/argocd/argocd-simple:
               domain: *domain
