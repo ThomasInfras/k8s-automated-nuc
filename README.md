@@ -67,5 +67,39 @@ spec:
 EOF
 ```
 
+
+Pour windows
+
+```
+$content = @"
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: k8s-argocd-infra.git
+  namespace: argocd-infra
+spec:
+  ignoreDifferences:
+  - group: argoproj.io
+    kind: Application
+    jsonPointers:
+    - /operation
+  project: default
+  source:
+    repoURL: 'https://github.com/ThomasInfras/k8s-automated-kind'
+    targetRevision: HEAD
+    path: k8s-argocd-infra
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: argocd-infra
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+"@
+
+$content | kubectl apply -f -
+```
+
+
 rajouter dans le hostname les nom dns choisi
 
