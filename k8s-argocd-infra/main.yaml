@@ -33,12 +33,12 @@ spec:
           # NGINX
           #- $templates/nginx/nginx-kind.yaml
         valuesObject:
-          domain: &domain .kind.localhost
+          domain: &domain .talos-1.local
           apps_values:
             git@github.com/ThomasInfras/argocd-template/argocd/argocd-simple:
               domain: *domain
             git@github.com/ThomasInfras/argocd-template/argocd/argocd-apps:
-              repo: 'https://github.com/ThomasInfras/k8s-automated-kind'
+              repo: 'https://github.com/ThomasInfras/k8s-automated-nuc'
     - repoURL: 'https://github.com/ThomasInfras/argocd-templates'
       targetRevision: "HEAD"
       ref: templates
