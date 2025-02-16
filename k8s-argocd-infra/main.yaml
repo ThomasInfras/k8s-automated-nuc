@@ -39,7 +39,7 @@ spec:
             git@github.com/ThomasInfras/argocd-template/argocd/argocd-simple:
               domain: *domain
             git@github.com/ThomasInfras/argocd-template/argocd/argocd-apps:
-              repo: 'https://github.com/ThomasInfras/k8s-automated-nuc'
+              repoURL: 'https://github.com/ThomasInfras/k8s-automated-nuc'
     - repoURL: 'https://github.com/ThomasInfras/argocd-templates'
       targetRevision: "HEAD"
       ref: templates
