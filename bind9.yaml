@@ -29,11 +29,6 @@ apps_dict_tpl:
                       file "/etc/bind/talos.homelab.zone";
                     };
                   };
-              
-                  view guest {
-                    match-clients { guest; };
-                    allow-recursion { any; };
-                  };  
                 talos.homelab.zone: |
                   $TTL 1d;
                   $ORIGIN talos.homelab.;
