@@ -1,0 +1,56 @@
+apps_dict_tpl:
+  github.com/ThomasInfras/argocd-template/bind9/bind9:
+    bind9:
+      spec:
+        source:
+          helm:
+            valuesObject:
+              config:
+                named.conf: |
+                  acl trusted { 192.168.1.0/24; localhost; };
+                  options {
+                    directory "/var/cache/bind";
+              
+                    allow-query { trusted; };
+                    allow-recursion { any; };
+              
+                    forwarders {
+                      1.1.1.1;
+                      8.8.8.8;
+                    };
+                  };
+              
+                  view trusted {
+                    match-clients { trusted; };
+                    allow-recursion { any; };
+              
+                    zone "talos.homelab" IN {
+                      type primary;
+                      file "/etc/bind/talos.homelab.zone";
+                    };
+                  };
+              
+                  view guest {
+                    match-clients { guest; };
+                    allow-recursion { any; };
+                  };  
+                talos.homelab.zone: |
+                  $TTL 1d;
+                  $ORIGIN talos.homelab.;
+              
+                  @         IN      SOA   ns.talos.homelab. info.talos.homelab. (
+                                          2023072000 ; serial number
+                                          12h        ; refresh
+                                          15m        ; update retry
+                                          3w         ; expiry
+                                          2h         ; minimum
+                                          )
+                            IN      NS    ns.talos.homelab.
+                  ns        IN      A     192.168.1.136 
+              
+                  *   IN      A     192.168.1.136
+              env:
+                - name: TZ
+                  value: UTC
+                - name: BIND9_USER
+                  value: bind
