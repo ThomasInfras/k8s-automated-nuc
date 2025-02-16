@@ -33,7 +33,7 @@ spec:
           - $templates/netdata/netdata.yaml
           - $templates/kubescape/kubescape.yaml
           - $templates/jupyterhub/jupyterhub.yaml
-          - $templates/coredns/coredns.yaml
+          #- $templates/coredns/coredns.yaml
           - $templates/local-path-provisioner/local-path-provisioner.yaml 
         valuesObject:
           domain: &domain .kind.localhost
