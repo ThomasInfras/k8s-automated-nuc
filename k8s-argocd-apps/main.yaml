@@ -34,7 +34,8 @@ spec:
           - $templates/kubescape/kubescape.yaml
           - $templates/jupyterhub/jupyterhub.yaml
           #- $templates/coredns/coredns.yaml
-          - $templates/local-path-provisioner/local-path-provisioner.yaml 
+          - $templates/local-path-provisioner/local-path-provisioner.yaml
+          - $templates/bind9.yaml
         valuesObject:
           domain: &domain .kind.localhost
           apps_values:
@@ -47,3 +48,6 @@ spec:
     - repoURL: 'https://github.com/ThomasInfras/argocd-templates'
       targetRevision: "HEAD"
       ref: templates
+    - repoURL: 'https://github.com/ThomasInfras/k8s-automated-nuc'
+      targetRevision: "HEAD"
+      ref: values
