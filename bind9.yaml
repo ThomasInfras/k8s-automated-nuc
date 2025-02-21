@@ -8,6 +8,7 @@ apps_dict_tpl:
               config:
                 named.conf: |
                   acl trusted { 192.168.1.0/24; localhost; };
+                  acl AllowedHosts { 192.168.1.0/24; };
                   options {
                     directory "/var/cache/bind";
               
