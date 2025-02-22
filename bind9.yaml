@@ -25,27 +25,26 @@ apps_dict_tpl:
                     match-clients { any; };
                     allow-recursion { any; };
               
-                    zone "talos.homelab" IN {
+                    zone "talos" IN {
                       type primary;
-                      file "/etc/bind/talos.homelab.zone";
+                      file "/etc/bind/talos.zone";
                     };
                   };
-                talos.homelab.zone: |
+                talos.zone: |
                   $TTL 1d;
-                  $ORIGIN talos.homelab.;
+                  $ORIGIN talos.;
               
-                  @         IN      SOA   ns.talos.homelab. info.talos.homelab. (
+                  @         IN      SOA   ns.talos. info.talos. (
                                           2023072000 ; serial number
                                           12h        ; refresh
                                           15m        ; update retry
                                           3w         ; expiry
                                           2h         ; minimum
                                           )
-                            IN      NS    ns.talos.homelab.
+                            IN      NS    ns.talos.
                   ns        IN      A     192.168.1.136 
               
                   *   IN      A     192.168.1.136
-                  toto  IN  A  192.168.1.136 
               env:
                 - name: TZ
                   value: UTC
