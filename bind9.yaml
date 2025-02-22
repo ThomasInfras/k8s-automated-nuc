@@ -12,7 +12,7 @@ apps_dict_tpl:
                   options {
                     directory "/var/cache/bind";
               
-                    allow-query { trusted; };
+                    allow-query { any; };
                     allow-recursion { any; };
               
                     forwarders {
@@ -22,7 +22,7 @@ apps_dict_tpl:
                   };
               
                   view trusted {
-                    match-clients { trusted; };
+                    match-clients { any; };
                     allow-recursion { any; };
               
                     zone "talos.homelab" IN {
