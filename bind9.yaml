@@ -45,6 +45,7 @@ apps_dict_tpl:
                   ns        IN      A     192.168.1.136 
               
                   *   IN      A     192.168.1.136
+                  toto  IN  A  192.168.1.136 
               env:
                 - name: TZ
                   value: UTC
