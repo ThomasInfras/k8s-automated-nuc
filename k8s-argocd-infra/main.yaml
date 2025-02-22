@@ -34,7 +34,7 @@ spec:
           - $templates/nginx/nginx-ds-nodePort.yaml
           #- $templates/nginx/nginx-kind.yaml
         valuesObject:
-          domain: &domain .talos-1.local
+          domain: &domain .talos
           apps_values:
             git@github.com/ThomasInfras/argocd-template/argocd/argocd-simple:
               domain: *domain
