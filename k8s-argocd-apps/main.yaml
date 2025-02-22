@@ -38,7 +38,7 @@ spec:
           - $templates/bind9/bind9.yaml
           - $values/bind9.yaml
         valuesObject:
-          domain: &domain .kind.localhost
+          domain: &domain .talos
           apps_values:
             git@github.com/ThomasInfras/argocd-template/homepage/homepage:
               domain: *domain
