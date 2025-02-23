@@ -37,6 +37,7 @@ spec:
           - $templates/local-path-provisioner/local-path-provisioner.yaml
           - $templates/bind9/bind9.yaml
           - $values/bind9.yaml
+          - $templates/nginx/nginx-ds-nodePort.yaml          
         valuesObject:
           domain: &domain .talos
           apps_values:
