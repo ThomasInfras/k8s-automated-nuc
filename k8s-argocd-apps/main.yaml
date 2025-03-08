@@ -39,6 +39,15 @@ spec:
           - $values/bind9.yaml
           - $templates/nginx/nginx-ds-nodePort.yaml          
         valuesObject:
+          apps_dict_tpl:
+            github.com/ThomasInfras/argocd-template/nginx/nginx-ds-nodePort:
+              nginx:
+                  source:
+                    helm:
+                      valuesObject:                                                                                                                                                                                         
+                        controller:
+                          config:
+                            bind-address: 192.168.1.136
           domain: &domain .talos
           apps_values:
             git@github.com/ThomasInfras/argocd-template/homepage/homepage:
