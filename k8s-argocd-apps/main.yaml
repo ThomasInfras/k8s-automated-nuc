@@ -42,6 +42,7 @@ spec:
           apps_dict_tpl:
             github.com/ThomasInfras/argocd-template/nginx/nginx-ds-nodePort:
               nginx:
+                spec:
                   source:
                     helm:
                       valuesObject:                                                                                                                                                                                         
